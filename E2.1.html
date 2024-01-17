@@ -1,0 +1,89 @@
+<head>
+    <title>E2: . Composition with Red, Blue and YellowLinks to an external site. by Piet Mondrian</title>
+    <style>
+        body {
+            background: rgb(163, 158, 158);
+        }
+
+        .painting-1 {
+            display: grid;
+            width: 600px;
+            height: 600px;
+            grid-template-rows: repeat(15, 1fr);
+            grid-template-columns: repeat(15, 1fr);
+        }
+
+        .red {
+            background: #E94734;
+        }
+
+        .cream {
+            background: #FFF9E7;
+        }
+
+        .blue {
+            background: #3A94C0;
+        }
+
+        .yellow {
+            background: #F7DE00;
+        }
+
+        .border-right {
+            border-right: 15px solid #4B4444;
+        }
+
+        .border-bottom {
+            border-bottom: 15px solid #4B4444;
+        }
+
+        .section-1 {
+            grid-column: 1 / 4;
+            grid-row: 1 / 5;
+        }
+
+        .section-2 {
+            grid-column: 4 / 16;
+            grid-row: 1 / 12;
+        }
+
+        .section-3 {
+            grid-column: 1 / 4;
+            grid-row: 5 / 12;
+        }
+
+        .section-4 {
+            grid-column: 1 / 4;
+            grid-row: 12 / 16;
+        }
+
+        .section-5 {
+            grid-column: 4 / 15;
+            grid-row: 12 / 16;
+        }
+
+
+        .section-6 {
+            grid-row: span 2;
+        }
+
+        .section-7 {
+            grid-row: span 2;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <div class="painting-1">
+        <div class="cream section-1 border-right border-bottom"></div>
+        <div class="red section-2 border-bottom"></div>
+        <div class="cream section-3 border-right border-bottom"></div>
+        <div class="blue section-4 border-right"></div>
+        <div class="cream section-5 border-right"></div>
+        <div class="cream section-6 border-bottom"></div>
+        <div class="yellow section-7"></div>
+    </div>
+</body>
+
+</html>
