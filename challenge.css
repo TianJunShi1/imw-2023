@@ -1,0 +1,379 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  background-color: #15003d;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.descript {
+  position: absolute;
+  left: 2%;
+  top: 2%;
+  z-index: 2;
+}
+
+.descript h1,
+.descript p {
+  color: #fff;
+}
+
+.descript p {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.right-arrow {
+  height: 100px;
+  width: 50px;
+  animation: shake 0.8s infinite;
+  position: absolute;
+  right: 2%;
+  bottom: 4%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.right-arrow::after {
+  content: '';
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 15px solid #fff;
+  border-left: none;
+  border-top: none;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.road {
+  width: 100%;
+  height: 350px;
+  background: linear-gradient(to bottom, #777 0%, #4e4e4e 100%);
+  position: absolute;
+  bottom: 9%;
+  left: 0;
+  border: 1px solid transparent;
+  z-index: 1;
+  transform: skewY(-8deg);
+}
+
+ul {
+  overflow: hidden;
+  white-space: nowrap;
+  height: 20px;
+  margin: 135px auto 0;
+}
+
+li {
+  list-style: none;
+  width: 100px;
+  display: inline-block;
+  height: 10px;
+  background-color: #fff;
+  margin-right: 30px;
+  margin-left: 30px;
+  position: relative;
+  left: 0;
+  animation: road 1s linear infinite;
+}
+
+@keyframes road {
+  0% {
+    left: 0px;
+  }
+
+  100% {
+    left: -165px;
+  }
+}
+
+.mountains-01,
+.mountains-02,
+.mountains-03,
+.mountains-04,
+.mountains-05,
+.mountains-07,
+.mountains-08,
+.mountains-06 {
+  position: absolute;
+  bottom: 30%;
+  width: 400px;
+  border-radius: 10px 0px 0px 0px;
+  height: 34vh;
+  transform: rotate(45deg);
+  background: linear-gradient(90deg, #06002b 0%, #0d0026 100%);
+}
+
+.mountains-01 {
+  left: -2%;
+  bottom: 10%;
+}
+
+.mountains-02 {
+  left: 25%;
+}
+
+.mountains-03 {
+  left: 45%;
+}
+
+.mountains-04 {
+  left: 60%;
+}
+
+.mountains-05 {
+  left: 80%;
+}
+
+.mountains-06 {
+  left: 10%;
+}
+
+.mountains-07 {
+  left: 35%;
+}
+
+.mountains-08 {
+  left: 70%;
+}
+
+.person {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 40px;
+  height: 80px;
+  transform-origin: bottom center;
+  z-index: 2;
+}
+
+.head {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.body {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 30px;
+  height: 50px;
+  background-color: #fff;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.arm {
+  position: absolute;
+  top: 35px;
+  left: -10px;
+  width: 10px;
+  height: 30px;
+  border-top: 3px solid #fff;
+  transform-origin: top center;
+  animation: wave 2s linear infinite alternate;
+  z-index: 2;
+}
+
+.umbrella {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translateX(-50%) scale(0.7) rotate(45deg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;
+  z-index: 2;
+}
+
+.rain {
+  position: absolute;
+  top: 0;
+  background-color: #fff;
+  z-index: 2;
+  width: 1px;
+  height: 20px;
+}
+
+.rain-01 {
+  left: 4%;
+  animation: rain-fall 1s linear infinite;
+}
+
+.rain-02 {
+  left: 8%;
+  animation: rain-fall 1.5s linear infinite;
+}
+
+.rain-03 {
+  left: 12%;
+  animation: rain-fall 2s linear infinite;
+}
+
+.rain-04 {
+  left: 16%;
+  animation: rain-fall 2.5s linear infinite;
+}
+
+.rain-05 {
+  left: 20%;
+  animation: rain-fall 3s linear infinite;
+}
+
+.rain-06 {
+  left: 24%;
+  animation: rain-fall 3.5s linear infinite;
+}
+
+.rain-07 {
+  left: 28%;
+  animation: rain-fall 2s linear infinite;
+}
+
+.rain-08 {
+  left: 32%;
+  animation: rain-fall 1s linear infinite;
+}
+
+.rain-09 {
+  left: 36%;
+  animation: rain-fall 3s linear infinite;
+}
+
+.rain-10 {
+  left: 40%;
+  animation: rain-fall 5.5s linear infinite;
+}
+
+.rain-11 {
+  left: 44%;
+  animation: rain-fall 6s linear infinite;
+}
+
+.rain-12 {
+  left: 48%;
+  animation: rain-fall 1s linear infinite;
+}
+
+.rain-13 {
+  left: 52%;
+  animation: rain-fall 1.5s linear infinite;
+}
+
+.rain-14 {
+  left: 56%;
+  animation: rain-fall 2s linear infinite;
+}
+
+.rain-15 {
+  left: 60%;
+  animation: rain-fall 2.5s linear infinite;
+}
+
+.rain-16 {
+  left: 64%;
+  animation: rain-fall 6s linear infinite;
+}
+
+.rain-17 {
+  left: 68%;
+  animation: rain-fall 1s linear infinite;
+}
+
+.rain-18 {
+  left: 72%;
+  animation: rain-fall 2s linear infinite;
+}
+
+.rain-19 {
+  left: 76%;
+  animation: rain-fall 4s linear infinite;
+}
+
+.rain-20 {
+  left: 80%;
+  animation: rain-fall 5.5s linear infinite;
+}
+
+.rain-21 {
+  left: 84%;
+  animation: rain-fall 1s linear infinite;
+}
+
+.rain-22 {
+  left: 88%;
+  animation: rain-fall 5s linear infinite;
+}
+
+.rain-23 {
+  left: 92%;
+  animation: rain-fall 2.5s linear infinite;
+}
+
+.rain-24 {
+  left: 96%;
+  animation: rain-fall 53.5s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(30deg);
+  }
+
+  50% {
+    transform: rotate(0);
+  }
+
+  75% {
+    transform: rotate(-30deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes rain-fall {
+  from {
+    transform: translateY(-100vh);
+  }
+
+  to {
+    transform: translateY(100vh);
+  }
+}
