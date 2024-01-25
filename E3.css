@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
+
+* {
+	
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #a5d0ce;
+}
+.grow {
+	font-family: "Titan One", sans-serif;
+    font-size: 100px;
+	color: #fff;
+	
+	-webkit-text-stroke: 3px #000;
+	
+	text-transform: uppercase;
+
+	text-shadow: 0 0 #f3c623, 0 0 #f2aaaa;
+}
+@keyframes grow {
+	0% { font-size: 50px;}
+	100% { font-size: 150px;}
+}
+
+.monospace{
+    font-family: monospace,serif;
+    -webkit-text-stroke: 1px #d9fbbf;
+    font-size: 100px;
+
+    
+    transition: color 400ms,transform 400ms;
+
+    &:hover{
+        color: rgb(0, 47, 255);
+        transform: translateY(100px)
+    }
+
+ 
+
+}
+
+.adobe-font{
+    font-family: "bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: color 400ms,transform 400ms;
+    -webkit-text-stroke: 3px #ffffff;
+    font-size: 100px;
+
+
+    &:hover{
+        color: red;
+        transform: translateY(-100px);
+    }
+}
+
+
+
+
+.google-font{
+    font-family: 'Stint Ultra Condensed', serif;
+    transition: color 400ms,transform 750ms;
+    font-size: 100px;
+
+    &:hover{
+        color: rgb(0, 255, 221);
+        transform: translateX(100px);
+    }
+
+}
+
+.grow:hover {
+    animation: grow 3s ease-in-out;
+  }
