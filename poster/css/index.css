@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f7f7f7;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster {
+  width: 1000px;
+  height: 90vh;
+  background: linear-gradient(-45deg, #12c2e9, #c471ed, #f64f59);
+  background-size: 400% 400%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  animation: gradientbg 15s ease infinite;
+}
+
+@keyframes gradientbg {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h1 {
+  font-family: "Frijole";
+  font-size: 56px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  animation: titleScale 1s alternate;
+}
+
+@keyframes titleScale {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
+
+pre {
+  font-family: "Frijole";
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 40px;
+  text-align: center;
+  animation: titleScale 1s alternate;
+}
+
+a {
+  font-family: "Playfair Display";
+  display: block;
+  width: 200px;
+  line-height: 60px;
+  background-color: #00a8ff;
+  color: #fff;
+  font-size: 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.3s linear;
+  z-index: 2;
+}
+
+a:hover {
+  transform: rotateX(30deg);
+}
+
+.stripes div {
+  opacity: 0.75;
+  mix-blend-mode: soft-light;
+  position: absolute;
+  transform: skewY(-10deg);
+}
+
+.stripes div:nth-of-type(1) {
+  background: linear-gradient(270deg, transparent 35%, #b3d4ff 100%);
+  width: 500px;
+  height: 200px;
+  top: -40px;
+  left: 0px;
+}
+
+.stripes div:nth-of-type(2) {
+  background: linear-gradient(90deg, transparent 35%, #b3d4ff 100%);
+  width: 100%;
+  height: 200px;
+  top: 190px;
+  left: 100px;
+}
+
+.stripes div:nth-of-type(3) {
+  background: linear-gradient(270deg, transparent 35%, #b3d4ff 100%);
+  width: 100%;
+  height: 200px;
+  top: 440px;
+  left: 0;
+}
+
+.stripes div:nth-of-type(4) {
+  background: linear-gradient(90deg, transparent 35%, #b3d4ff 100%);
+  width: 50%;
+  height: 200px;
+  bottom: -40px;
+  right: 0;
+}
+
+.ball {
+  animation: ballMovement 3.5s ease-in-out infinite;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  position: absolute;
+  right: 20px;
+  bottom: 100px;
+  background: radial-gradient(
+    circle at 75% 30%,
+    white 5px,
+    aqua 8%,
+    darkblue 60%,
+    aqua 100%
+  );
+  box-shadow: inset 0 0 20px #fff, inset 10px 0 46px #eaf5fc,
+    inset 88px 0px 60px #c2d8fe, inset -20px -60px 100px #fde9ea,
+    inset 0 50px 140px #fde9ea, 0 0 90px #fff;
+}
+
+@keyframes ballMovement {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-80px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.shadow {
+  background: #b490b2;
+  width: 120px;
+  height: 40px;
+  animation: shadowMovement 4s infinite;
+  position: absolute;
+  right: 36px;
+  bottom: 50px;
+  border-radius: 50%;
+}
+@keyframes shadowMovement {
+  0%,
+  100% {
+    transform: scale(0.5);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
