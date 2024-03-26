@@ -1,81 +1,109 @@
-// 1. Interaction - Click on a circle to change background color of container.
-// green
-document.getElementById("green").onclick = function () {
-  interactionContainerBg("green")
-}
-// plum
-document.getElementById("plum").onclick = function () {
-  interactionContainerBg("plum")
-}
-// blue
-document.getElementById("blue").onclick = function () {
-  interactionContainerBg("blue")
-}
-// interactionContainer DOM backgroundColor
-function interactionContainerBg (color) {
-  document.getElementById('interactionContainer').style.backgroundColor = color
+const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+let score = 0
+let totalTyped = 0
+let correctTyped = 0
+let incorrectTyped = 0
+let timer
+let secondsLeft = 20
+let currentChars = []
+
+function generateRandomCharacter() {
+  return characters[Math.floor(Math.random() * characters.length)]
 }
 
+function displayCharacters() {
+  const container = document.getElementById('container')
+  container.innerHTML = ''
+  for (let i = 0; i < currentChars.length; i++) {
+    const char = currentChars[i]
+    const top = Math.floor(Math.random() * (container.clientHeight - 80))
+    const left = Math.floor(Math.random() * (container.clientWidth - 80))
 
-// 2. Loop - Use a for loop to add repeating text.
-// repeating text data
-let repeatingText = 'Loop '
-// loop conut
-let count = 10
-// Output the result
-let result = ''
-// loop repeating text
-for (let i = 0; i < count; i++) {
-  result += repeatingText
-}
-// Display page
-let h5Element = document.createElement('h5')
-h5Element.innerHTML = result
-document.getElementById('loopContainer').appendChild(h5Element)
+    const charDiv = document.createElement('div')
+    charDiv.textContent = char
+    charDiv.classList.add('character')
+    charDiv.style.top = top + 'px'
+    charDiv.style.left = left + 'px'
+    charDiv.style.backgroundColor = 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')'
 
-
-// 3. Condition - Change the color of the square based on a set of conditions.
-let square = document.getElementById('square')
-// Define the condition
-let data = 10
-// Change the color of the square based
-if (data > 5) {
-  square.style.backgroundColor = 'red'
-} else {
-  square.data.backgroundColor = 'lightsalmon'
-}
-
-
-// 4. Time - Increase the font size of the text as time passes.
-// Get the increaseText element
-let increaseText = document.getElementById('increaseText')
-// Define the initial font size
-let fontSize = 32
-// Define the initial time counter 
-let time = 0
-// Update font size per second
-let increaseTime = setInterval(() => {
-  // Increase time counter per second
-  time++
-  // Calculate new font size per second
-  fontSize += time
-  // Update the font size- increaseText element
-  increaseText.style.fontSize = fontSize + 'px'
-  // Set a certain time interval to stop
-  if (time >= 8) {
-    clearInterval(increaseTime)
+    container.appendChild(charDiv)
   }
-}, 1000)
-
-
-// 5. Input - Display the number of characters from an input field.
-let textLength = document.getElementById('text-length')
-document.getElementById('submit').onclick = function (e) {
-  e.preventDefault()
-  let inputText = document.getElementById('inputText')
-  textLength.innerHTML = inputText.value.length
 }
 
+function startGame() {
+  for (let i = 0; i < 6; i++) {
+    currentChars.push(generateRandomCharacter())
+  }
+  displayCharacters()
 
-// 6. Console - Print a message of your choice to the console.
-console.log("Message: Welcome to the console!")
+  timer = setInterval(() => {
+    secondsLeft--
+    if (secondsLeft < 0) {
+      clearInterval(timer)
+      const accuracy = (correctTyped / totalTyped) * 100 || 0
+      alert(`Game Over! Score: ${score}, Accuracy: ${accuracy.toFixed(2)}%, Incorrect: ${incorrectTyped}`)
+      resetGame()
+    }
+  }, 1000)
+}
+
+function resetGame() {
+  currentChars = []
+  clearInterval(timer)
+  displayCharacters()
+  secondsLeft = 5
+  score = 0
+  totalTyped = 0
+  correctTyped = 0
+  incorrectTyped = 0
+  startGame()
+}
+
+document.addEventListener('keydown', (event) => {
+  const typedChar = String.fromCharCode(event.keyCode).toUpperCase()
+  const charDivs = document.getElementsByClassName('character')
+  let matchedChar = null
+
+  for (let i = 0; i < charDivs.length; i++) {
+    const charDiv = charDivs[i]
+    const char = charDiv.textContent
+
+    if (typedChar === char) {
+      matchedChar = charDiv
+      break
+    }
+  }
+
+  if (matchedChar) {
+    score++
+    correctTyped++
+
+    let top, left
+    let overlapped = true
+    while (overlapped) {
+      top = Math.floor(Math.random() * (container.clientHeight - 20))
+      left = Math.floor(Math.random() * (container.clientWidth - 20))
+
+      overlapped = false
+      for (let j = 0; j < charDivs.length; j++) {
+        if (charDivs[j] !== matchedChar && Math.abs(top - parseInt(charDivs[j].style.top)) < 20 && Math.abs(left - parseInt(charDivs[j].style.left)) < 20) {
+          overlapped = true
+          break
+        }
+      }
+    }
+
+    matchedChar.style.top = top + 'px'
+    matchedChar.style.left = left + 'px'
+    matchedChar.style.backgroundColor = 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')'
+    matchedChar.textContent = generateRandomCharacter()
+  } else {
+    incorrectTyped++
+  }
+
+  totalTyped++
+})
+
+
+startGame()
+
