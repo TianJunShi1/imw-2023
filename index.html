@@ -2,88 +2,76 @@
 <html>
 
 <head>
-  <title>website as an ocean</title>
+  <title>Bubble Pop Challenge</title>
+  <link href="https://fonts.googlefonts.cn/css?family=Righteous" rel="stylesheet">
+  <link href="https://fonts.googlefonts.cn/css?family=Hammersmith+One" rel="stylesheet">
   <style>
-    * {
-      padding: 0;
+    body {
       margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #f1e609, #cafd86);
     }
 
-    h1 {
-      margin-top: 50px;
-      color: #fff;
+    .box {
       text-align: center;
     }
 
-    .ocean {
-      height: 100vh;
-      width: 100%;
-      background: linear-gradient(to bottom, #0688da, #64bdf5);
-      position: relative;
-      overflow: hidden;
-    }
-
-
-    .waves {
+    h1 {
+      font-size: 32px;
+      color: #000;
       position: absolute;
-      bottom: 0;
+      right: 2%;
+      top: 2%;
+      font-family: "Righteous";
+    }
+
+    .main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    .margin0 {
+      margin: 0;
+    }
+
+    #container {
       width: 100%;
-      height: 30vh;
+      height: 100vh;
+      position: relative;
     }
 
-    .waves-g>use {
-      animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+    .character {
+      position: absolute;
+      width: 80px;
+      line-height: 80px;
+      color: #fff;
+      font-size: 40px;
+      font-family: 'Hammersmith One', sans-serif;
+      border-radius: 50%;
+      font-weight: bold;
+      transition: all 0.3s;
     }
 
-    .waves-g>use:nth-child(1) {
-      animation-delay: -2s;
-      animation-duration: 7s;
-    }
-
-    .waves-g>use:nth-child(2) {
-      animation-delay: -3s;
-      animation-duration: 10s;
-    }
-
-    .waves-g>use:nth-child(3) {
-      animation-delay: -4s;
-      animation-duration: 13s;
-    }
-
-    .waves-g>use:nth-child(4) {
-      animation-delay: -5s;
-      animation-duration: 20s;
-    }
-
-    @keyframes move-forever {
-      0% {
-        transform: translate3d(-90px, 0, 0);
-      }
-
-      100% {
-        transform: translate3d(85px, 0, 0);
-      }
+    #container div:hover {
+      transform: translate(0, -20px);
     }
   </style>
 </head>
 
 <body>
-  <div class="ocean">
-    <h1>website as an ocean</h1>
-    <div>
-      <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-          <path id="all-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="waves-g">
-          <use xlink:href="#all-wave" x="48" y="0" fill="rgba(255,255,255,0.6)" />
-          <use xlink:href="#all-wave" x="48" y="3" fill="rgba(255,255,255,0.4)" />
-          <use xlink:href="#all-wave" x="48" y="5" fill="rgba(255,255,255,0.2)" />
-          <use xlink:href="#all-wave" x="48" y="7" fill="rgba(255,255,255,0.8)" />
-        </g>
-      </svg>
+  <div class="box">
+    <h1>Keyboard: Type the correct letters or numbers to display</h1>
+    <div class="main">
+      <div id="container"></div>
     </div>
   </div>
+
+  <script src="index.js"></script>
 </body>
 
 </html>
