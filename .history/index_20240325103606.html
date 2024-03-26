@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bubble Pop Challenge</title>
+  <style>
+    .box {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 42px;
+    }
+
+    .bubblePre {
+      width: 600px;
+      margin: 0 auto;
+    }
+
+    .main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .left,
+    .right {
+      width: 200px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    .margin0 {
+      margin: 0;
+    }
+
+    #score {
+      padding: 0 20px;
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .left p,
+    .right p {
+      text-align: left;
+    }
+
+    #container {
+      border: 1px solid black;
+      width: 750px;
+      height: 500px;
+      position: relative;
+    }
+
+    #container div {
+      position: absolute;
+    }
+
+    button {
+      margin-top: 30px;
+      background-color: #ff7e05;
+      padding: 10px;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>Keyboard Game Challenge</h1>
+    <div class="bubblePre">
+      <p class="margin0">Controls:</p>
+      <p class="margin0">
+        Keyboard: Type the correct letters or numbers to display.</p>
+    </div>
+    <div class="main">
+      <div class="left">
+        <p>Score</p>
+        <p>correct: <span id="correct">0</span></p>
+        <p>error: <span id="error">0</span></p>
+        <p>Test your reflexes and typing skills.</p>
+      </div>
+      <div id="container"></div>
+      <div class="right">
+        <p>Time: <span id="time">02:00</span> min</p>
+        <p>Every successful typing of the same content earns points. Each game lasts for 2 minutes. Try to improve your
+          score before time runs out.</p>
+      </div>
+    </div>
+    <button id="start">START</button>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
