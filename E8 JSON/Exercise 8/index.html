@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 8</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <ul id="list"></ul>
+  <script>
+    populate()
+
+    async function populate () {
+      const request = new Request("https://api.github.com/users")
+      const response = await fetch(request)
+      const result = await response.json()
+      list(result)
+    }
+
+    function list (result) {
+      for (let i = 0; i < result.length; i++) {
+        let _li = document.createElement("li")
+
+        let _img = document.createElement("img")
+        _img.src = result[i].avatar_url
+        _img.alt = result[i].login
+
+        let _h2 = document.createElement("h2")
+        _h2.textContent = result[i].login
+
+        let _p1 = document.createElement("p")
+        _p1.textContent = 'Github Url: '
+
+        let _a = document.createElement("a")
+        _a.textContent = result[i].html_url
+        _a.href = result[i].html_url
+
+        _p1.appendChild(_a)
+
+        let _p2 = document.createElement("p")
+        _p2.textContent = `Type: ${result[i].type}`
+
+        _li.appendChild(_img)
+        _li.appendChild(_h2)
+        _li.appendChild(_p1)
+        _li.appendChild(_p2)
+
+        document.getElementById('list').appendChild(_li)
+      }
+    }
+
+  </script>
+</body>
+
+</html>
